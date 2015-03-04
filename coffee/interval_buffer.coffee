@@ -1,4 +1,3 @@
-
 DEFAULT_INTERVAL = 5000
 
 class IntervalBuffer

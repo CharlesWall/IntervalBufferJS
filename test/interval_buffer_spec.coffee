@@ -1,4 +1,4 @@
-IntervalBuffer = require '../interval_buffer.coffee'
+IntervalBuffer = require '../interval_buffer'
 sinon = require 'sinon'
 assert = require 'assert'
 

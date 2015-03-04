@@ -2,20 +2,20 @@
   "name": "interval-buffer",
   "version": "1.0.0",
   "description": "Bursting data structure",
-  "main": "index.js",
+  "main": "interval_buffer.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "sinon": "^1.12.2"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "./test.sh"
   },
   "repository": {
     "type": "git",
-    "url": "fill me in"
+    "url": "https://github.com/CharlesWall/IntervalBufferJS.git"
   },
   "keywords": [
     "Burst",

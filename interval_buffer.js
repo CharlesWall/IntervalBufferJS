@@ -11,8 +11,9 @@
 
     IntervalBuffer.prototype.timeoutId = null;
 
-    function IntervalBuffer(_arg) {
-      this.interval = _arg.interval, this.maxSize = _arg.maxSize, this.callback = _arg.callback;
+    function IntervalBuffer(_arg, callback) {
+      this.interval = _arg.interval, this.maxSize = _arg.maxSize;
+      this.callback = callback;
       this.cache = [];
       if (this.interval == null) {
         this.interval = DEFAULT_INTERVAL;
@@ -21,7 +22,7 @@
         this.maxSize = 0;
       }
       if (typeof this.callback !== 'function') {
-        throw 'callback required to be function';
+        throw new Error('callback required to be function');
       }
     }
 

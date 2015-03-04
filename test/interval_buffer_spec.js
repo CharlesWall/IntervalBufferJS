@@ -21,9 +21,8 @@
       return it('should create an empty cache', function() {
         var intervalBuffer;
         intervalBuffer = new IntervalBuffer({
-          callback: function() {},
           interval: 100
-        });
+        }, function() {});
         assert(intervalBuffer.cache instanceof Array, 'did not create an array for the cache');
         return assert.equal(intervalBuffer.cache.length, 0, 'the cache should be empty on initialization');
       });
@@ -32,9 +31,8 @@
       it('should add the item to the cache', function() {
         var intervalBuffer, item;
         intervalBuffer = new IntervalBuffer({
-          callback: function() {},
           interval: 100
-        });
+        }, function() {});
         item = {};
         intervalBuffer.push(item);
         return assert.equal(intervalBuffer.cache[0], item, 'the first element in the cache should have been the one pushed');
@@ -42,9 +40,8 @@
       it('should set the time out', function() {
         var intervalBuffer;
         intervalBuffer = new IntervalBuffer({
-          callback: function() {},
           interval: 100
-        });
+        }, function() {});
         intervalBuffer.push({});
         return assert(intervalBuffer.timeoutId, 'did not set a timeout on push');
       });
@@ -52,9 +49,8 @@
         var callback, i, intervalBuffer, _i;
         callback = sinon.spy();
         intervalBuffer = new IntervalBuffer({
-          callback: callback,
           interval: 5000
-        });
+        }, callback);
         for (i = _i = 0; _i < 10; i = ++_i) {
           intervalBuffer.push(i);
         }
@@ -66,10 +62,9 @@
         var callback, i, intervalBuffer, _i;
         callback = sinon.spy();
         intervalBuffer = new IntervalBuffer({
-          callback: callback,
           interval: 5000,
           maxSize: 10
-        });
+        }, callback);
         for (i = _i = 0; _i < 11; i = ++_i) {
           intervalBuffer.push(i);
         }

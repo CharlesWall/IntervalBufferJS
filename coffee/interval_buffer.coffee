@@ -5,11 +5,11 @@ class IntervalBuffer
 	interval: null
 	timeoutId: null
 
-	constructor: ({@interval, @maxSize, @callback})->
+	constructor: ({@interval, @maxSize}, @callback)->
 		@cache = []
 		@interval ?= DEFAULT_INTERVAL
 		@maxSize ?= 0
-		throw 'callback required to be function' unless typeof @callback is 'function' 
+		throw new Error 'callback required to be function' unless typeof @callback is 'function' 
 
 	push: (task)->
 		@cache.push task

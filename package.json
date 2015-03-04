@@ -1,0 +1,27 @@
+{
+  "name": "interval-buffer",
+  "version": "1.0.0",
+  "description": "Bursting data structure",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "sinon": "^1.12.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "./test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "fill me in"
+  },
+  "keywords": [
+    "Burst",
+    "Interval",
+    "Buffer"
+  ],
+  "author": "Charles T. Wall III",
+  "license": "MIT"
+}

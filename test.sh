@@ -1,2 +1,2 @@
 #!/bin/bash
-mocha --compilers coffee:coffee-script/register -R spec --timeout 30000 $@
+mocha -R spec --timeout 30000 $@

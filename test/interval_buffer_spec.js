@@ -27,7 +27,7 @@
         return assert.equal(intervalBuffer.cache.length, 0, 'the cache should be empty on initialization');
       });
     });
-    return describe('push', function() {
+    describe('push', function() {
       it('should add the item to the cache', function() {
         var intervalBuffer, item;
         intervalBuffer = new IntervalBuffer({
@@ -70,6 +70,19 @@
         }
         assert(callback.calledWith([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]), 'the callback was not called with the buffered elements');
         return assert.equal(intervalBuffer.cache.length, 1, 'the cache should have the extra element waiting to be bursted');
+      });
+    });
+    return describe('burst', function() {
+      return it('should emit a burst event every time the callback is called', function() {
+        var eventHandler, intervalBuffer;
+        intervalBuffer = new IntervalBuffer({
+          interval: 100
+        }, function() {});
+        eventHandler = sinon.spy();
+        intervalBuffer.on('burst', eventHandler);
+        intervalBuffer.push(2);
+        clock.tick(100);
+        return assert(eventHandler.calledWith(), 'the event handler was not called');
       });
     });
   });

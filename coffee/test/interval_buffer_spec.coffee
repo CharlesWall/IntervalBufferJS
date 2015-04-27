@@ -36,3 +36,11 @@ describe 'IntervalBuffer', ->
 			intervalBuffer.push i for i in [0...11]
 			assert callback.calledWith([0...10]), 'the callback was not called with the buffered elements'
 			assert.equal intervalBuffer.cache.length, 1, 'the cache should have the extra element waiting to be bursted'
+	describe 'burst', ->
+		it 'should emit a burst event every time the callback is called', ->
+			intervalBuffer = new IntervalBuffer interval: 100, ->
+			eventHandler = sinon.spy()
+			intervalBuffer.on 'burst', eventHandler
+			intervalBuffer.push 2
+			clock.tick 100
+			assert eventHandler.calledWith(), 'the event handler was not called'

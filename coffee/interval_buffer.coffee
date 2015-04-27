@@ -1,6 +1,8 @@
 DEFAULT_INTERVAL = 5000
 
-class IntervalBuffer
+{EventEmitter} = require 'events'
+
+class IntervalBuffer extends EventEmitter
 	cache: null
 	interval: null
 	timeoutId: null
@@ -22,6 +24,7 @@ class IntervalBuffer
 	burst: ->
 		@callback @cache
 		@cancel()
+		@emit 'burst'
 
 	cancel: ->
 		@cache = []
